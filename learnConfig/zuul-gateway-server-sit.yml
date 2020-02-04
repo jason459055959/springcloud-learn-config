@@ -1,4 +1,4 @@
-server:
+ymlserver:
   port: 80
 zuul:
    routes:
