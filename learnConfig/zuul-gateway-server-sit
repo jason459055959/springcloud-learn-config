@@ -1,0 +1,15 @@
+zuul:
+   routes:
+      api-member:
+         path: /api-member/**
+         serviceId: springcloud-learn-api-service-member
+      api-order:
+         path: /api-order/**
+         serviceId: springcloud-learn-api-service-order
+   host:
+      connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+      socket-timeout-millis: 60000 
+#因zuul启用了ribbon的负载均衡，还需要设置ribbon的超时时间，注意ribbon的超时时间要小于zuul超时时间 。
+ribbon:
+   ReadTimeout: 10000
+   ConnectTimeout: 10000
